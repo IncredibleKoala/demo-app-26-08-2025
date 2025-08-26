@@ -1,0 +1,29 @@
+<form>
+  <ui-modal>
+    <ui-modal-title *ngIf="data.title || data.customTitle">
+      @if (data.customTitle) {
+      <ng-container [ngTemplateOutlet]="data.customTitle" [ngTemplateOutletContext]="{ ref: dialogRef }"></ng-container>
+      } @else {
+      <ng-container>{{ data.title }}</ng-container>
+      }
+    </ui-modal-title>
+    <ui-modal-body *ngIf="data.customBody || data.body">
+      @if (data.customBody) {
+      <ng-container [ngTemplateOutlet]="data.customBody" [ngTemplateOutletContext]="{ ref: dialogRef }"></ng-container>
+      } @else {
+      <ng-container>{{ data.body }}</ng-container>
+      }
+    </ui-modal-body>
+    <ui-modal-actions>
+      @if (data.customActions) {
+      <ng-container
+        [ngTemplateOutlet]="data.customActions"
+        [ngTemplateOutletContext]="{ ref: dialogRef }"
+      ></ng-container>
+      } @else {
+      <button type="submit" [disabled]="actionInProgress$ | async" (click)="dialogRef.close(false)">Cancel</button>
+      <button type="button" [disabled]="actionInProgress$ | async" (click)="onConfirmClicked()">Confirm</button>
+      }
+    </ui-modal-actions>
+  </ui-modal>
+</form>

@@ -1,0 +1,50 @@
+<div
+  class="movies"
+  *ngIf="{
+    movies: (movies$ | async) || [],
+    filters: (filters$ | async),
+    busy: (busy$ | async) ?? false
+  } as vm"
+>
+  <shared-ui-page-header title="Movies">
+    <ng-template #rightPanelTemplate>
+      <div class="movies-filters">
+        <input
+          [ngModel]="vm.filters?.search"
+          (ngModelChange)="onFilterChange({ search: $event })"
+          [attr.data-cy]="'movies-search-input'"
+        />
+        <div class="movies-filters-actions">
+          <button
+            [disabled]="vm.busy"
+            [attr.data-cy]="'movies-create-button'"
+            (click)="onCreateMovieClicked()"
+            title="Add movie"
+          >
+            +
+          </button>
+          <button
+            [disabled]="vm.busy"
+            [attr.data-cy]="'movies-set-online-button'"
+            (click)="onSetOnlineClicked()"
+            title="Set online"
+          >
+            🚨
+          </button>
+        </div>
+      </div>
+    </ng-template>
+  </shared-ui-page-header>
+  <div class="movies-list" [class.busy]="vm.busy">
+    @if (!vm.movies.length) {
+    <div class="empty-state">Sorry, no movies matching your criteria found.</div>
+    } @for (movie of vm.movies; track movie.id) {
+    <lib-ui-movie-block
+      [attr.data-id]="movie.id"
+      [movie]="movie"
+      (deleteButtonClicked)="onDeleteButtonClicked(movie)"
+      (editButtonClicked)="onEditButtonClicked(movie)"
+    ></lib-ui-movie-block>
+    }
+  </div>
+</div>

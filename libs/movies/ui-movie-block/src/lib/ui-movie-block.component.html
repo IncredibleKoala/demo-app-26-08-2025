@@ -1,0 +1,18 @@
+<ui-card>
+  <ng-container card-image>
+    <ui-poster [src]="movie.pictureUrl" [height]="120" [width]="120"></ui-poster>
+  </ng-container>
+  <ng-container card-header>
+    <span
+      class="movie-status"
+      [attr.data-cy]="'movies-item-status'"
+      [class.is-online]="movie.isOnline"
+      [title]="movie.isOnline ? 'Online' : 'Offline'"
+    ></span>
+    <span class="movie-block" [attr.data-cy]="'movies-item-block'">{{ movie.name }}</span>
+  </ng-container>
+  <ng-container card-actions>
+    <button (click)="onDeleteButtonClicked()">🗑</button>
+    <button (click)="onEditButtonClicked()">✏</button>
+  </ng-container>
+</ui-card>

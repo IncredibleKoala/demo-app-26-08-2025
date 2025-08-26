@@ -1,0 +1,20 @@
+<form>
+  <ui-modal>
+    <ui-modal-title>{{ isEdit ? 'Edit movie' : 'Add movie' }}</ui-modal-title>
+    <ui-modal-body>
+      <label>
+        <span>Enter movie name:</span>
+        <input type="text" autocomplete="off" [formControl]="form.controls.name" />
+      </label>
+
+      <label>
+        <span>Is movie online now?</span>
+        <input type="checkbox" autocomplete="off" [formControl]="form.controls.isOnline" />
+      </label>
+    </ui-modal-body>
+    <ui-modal-actions>
+      <button type="button" [disabled]="isBusy$ | async" (click)="onCancelButtonClicked()">Cancel</button>
+      <button type="submit" [disabled]="form.invalid || (isBusy$ | async)" (click)="onSaveButtonClicked()">Save</button>
+    </ui-modal-actions>
+  </ui-modal>
+</form>

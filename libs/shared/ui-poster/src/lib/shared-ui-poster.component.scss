@@ -1,0 +1,18 @@
+:host {
+  display: contents;
+
+  &:host-context(.normal) {
+  }
+
+  &:host-context(.rounded) {
+    border-radius: 0.5em;
+    overflow: hidden;
+  }
+
+  &:host-context(.circle) {
+    img {
+      border-radius: 1000em;
+      overflow: hidden;
+    }
+  }
+}

@@ -1,0 +1,10 @@
+<img
+  (error)="onError()"
+  [ngSrc]="loadingFailed ? fallbackSrc : src ?? fallbackSrc"
+  [width]="width"
+  [height]="height"
+  [alt]="alt"
+  [title]="title"
+  [style.height.px]="height"
+  [style.width.px]="width"
+/>

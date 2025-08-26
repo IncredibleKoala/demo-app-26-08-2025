@@ -1,0 +1,36 @@
+:host {
+  display: contents;
+
+  .movies-filters-actions {
+    display: flex;
+    gap: 0.5em;
+  }
+
+  .empty-state {
+    padding: 4em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .movies {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  .movies-filters {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5em;
+  }
+
+  .movies-list {
+    overflow-y: auto;
+    &.busy lib-ui-movie-block::ng-deep .movie-actions {
+      pointer-events: none;
+      opacity: 0.5;
+    }
+  }
+}

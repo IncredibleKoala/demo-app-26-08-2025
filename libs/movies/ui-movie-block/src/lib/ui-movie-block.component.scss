@@ -1,0 +1,14 @@
+:host {
+  .movie-status {
+    --size: 8px;
+    display: inline-block;
+    background: indianred;
+    width: var(--size);
+    height: var(--size);
+    border-radius: 100%;
+
+    &.is-online {
+      background: greenyellow;
+    }
+  }
+}

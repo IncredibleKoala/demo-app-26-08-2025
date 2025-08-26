@@ -1,0 +1,129 @@
+::ng-deep {
+  .cdk-overlay-pane.mat-mdc-dialog-panel {
+    max-width: 95vw;
+  }
+
+  .mat-mdc-dialog-surface {
+    border-radius: 0.75em;
+  }
+
+  .shared-ui-modal {
+    background: white;
+    border-radius: 6px;
+  }
+
+  .shared-ui-modal {
+    --ui-modal-close-button-size: 16px;
+    --ui-modal-padding-large: 16px;
+    --ui-modal-padding-small: 8px;
+
+    display: flex;
+    flex-direction: column;
+    max-height: 85dvh;
+    max-width: 100%;
+    min-width: 100%;
+
+    &--w-wide {
+      width: 1240px;
+    }
+
+    &--w-large {
+      width: 720px;
+    }
+
+    &--w-medium {
+      width: 420px;
+    }
+
+    &--w-small {
+      width: 360px;
+    }
+
+    &--w-smaller {
+      width: 320px;
+    }
+
+    &--w-auto {
+      width: fit-content;
+    }
+
+    &--sub-title {
+      padding: 0 var(--ui-modal-padding-large);
+      padding-bottom: var(--ui-modal-padding-large);
+      margin-bottom: var(--ui-modal-padding-small);
+      color: var(--mat-sys-surface-tint);
+      font-size: small;
+    }
+
+    &--title {
+      display: flex;
+      line-height: calc(var(--ui-modal-close-button-size) * 3);
+      padding: var(--ui-modal-padding-small) var(--ui-modal-padding-large) var(--ui-modal-padding-large);
+      flex-shrink: 0;
+      align-items: center;
+
+      & ~ .shared-ui-modal--sub-title {
+        margin-top: calc(-1 * var(--ui-modal-padding-large));
+      }
+    }
+
+    &--body {
+      padding: 0 var(--ui-modal-padding-large);
+      overflow: scroll;
+      overflow: overlay;
+      flex-grow: 1;
+    }
+
+    &--actions {
+      padding: var(--ui-modal-padding-large) var(--ui-modal-padding-large) var(--ui-modal-padding-small);
+      flex-shrink: 0;
+      display: flex;
+      justify-content: flex-end;
+      gap: 0.5em;
+      &:empty {
+        display: none;
+      }
+    }
+
+    &--close-button {
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 100%;
+      width: var(--ui-modal-close-button-size);
+      height: var(--ui-modal-close-button-size);
+      margin-left: auto;
+      padding: 1em;
+      margin-right: -0.5em;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .mat-mdc-dialog-panel {
+      bottom: 0;
+      position: fixed !important;
+      padding: 0;
+      width: 95vw !important;
+      max-width: unset !important;
+    }
+
+    .mat-mdc-dialog-surface {
+      border-radius: 1em 1em 0 0;
+    }
+
+    .shared-ui-modal {
+      &--w-medium {
+        width: unset;
+      }
+
+      &--w-small {
+        width: unset;
+      }
+
+      &--w-smaller {
+        width: unset;
+      }
+    }
+  }
+}

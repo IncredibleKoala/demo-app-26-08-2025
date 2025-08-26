@@ -1,0 +1,32 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es2015",
+    "module": "esnext",
+    "lib": ["es2020", "dom"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@demo-app/movies-feature-main": ["libs/movies/feature-main/src/index.ts"],
+      "@demo-app/movies-feature-add-movie-dialog": ["libs/movies/feature-add-movie-dialog/src/index.ts"],
+      "@demo-app/movies-ui-movie-block": ["libs/movies/ui-movie-block/src/index.ts"],
+      "@demo-app/shared/data-access-movies-service": ["libs/shared/data-access-movies-service/src/index.ts"],
+      "@demo-app/shared/models-movies": ["libs/shared/models-movies/src/index.ts"],
+      "@demo-app/shared/ui-page-header": ["libs/shared/ui-page-header/src/index.ts"],
+      "@demo-app/shared/ui-card": ["libs/shared/ui-card/src/index.ts"],
+      "@demo-app/shared/ui-modal": ["libs/shared/ui-modal/src/index.ts"],
+      "@demo-app/shared/ui-poster": ["libs/shared/ui-poster/src/index.ts"],
+      "@demo-app/shared/util-search": ["libs/shared/util-search/src/index.ts"],
+      "@demo-app/shared/util-storage": ["libs/shared/util-storage/src/index.ts"]
+    }
+  },
+  "exclude": ["node_modules", "tmp"]
+}

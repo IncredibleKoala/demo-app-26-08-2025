@@ -1,0 +1,42 @@
+:host {
+  display: flex;
+  gap: 0.5em;
+  background: white;
+  transition: 0.2s all ease;
+
+  .hidden {
+    display: none !important;
+  }
+
+  &:hover {
+    background: rgb(255, 238, 238);
+  }
+
+  .card-image {
+  }
+
+  .card-content {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    flex-grow: 1;
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      gap: 0.5em;
+    }
+
+    .card-body {
+      display: flex;
+      align-items: center;
+      gap: 0.5em;
+    }
+
+    .card-actions {
+      display: flex;
+      margin-left: auto;
+      gap: 0.5em;
+    }
+  }
+}

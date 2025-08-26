@@ -1,0 +1,14 @@
+<header>
+  <div class="title">
+    @if (titleTemplate) {
+    <ng-container [ngTemplateOutlet]="titleTemplate"></ng-container>
+    } @else {
+    {{ title || '&nbsp;' }}
+    }
+  </div>
+  @if (rightPanelTemplate) {
+  <div class="right-panel">
+    <ng-container [ngTemplateOutlet]="rightPanelTemplate"></ng-container>
+  </div>
+  }
+</header>
