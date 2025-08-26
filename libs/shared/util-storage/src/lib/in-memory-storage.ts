@@ -1,6 +1,10 @@
 import { buildSearchCriteria, SearchExpr } from '@demo-app/shared/util-search';
 import { Storage } from './storage.type';
 
+/**
+ * In-memory storage class implementation
+ * @see Storage
+ */
 export class InMemoryStorage<TKey, T> extends Storage<TKey, T> {
   private readonly _storage = new Map<TKey, T>();
 
@@ -8,14 +12,25 @@ export class InMemoryStorage<TKey, T> extends Storage<TKey, T> {
     super();
   }
 
+  /**
+   * Returns item from collection by given key.
+   */
   public get(key: TKey): Promise<T | null> {
     return Promise.resolve(this._storage.get(key) ?? null);
   }
 
+  /**
+   * Returns all keys available in collection.
+   */
   public getAllKeys(): Promise<TKey[]> {
     return Promise.resolve(Array.from(this._storage.keys()));
   }
 
+  /**
+   * Performs lookup over collection using passed criteria.
+   * For details, see buildSearchCriteria by the link below.
+   * @see buildSearchCriteria
+   */
   public async search(props: SearchExpr<T>): Promise<T[]> {
     const hasFilters = Object.keys(props).length > 0;
     const filter = buildSearchCriteria(props);
@@ -23,6 +38,9 @@ export class InMemoryStorage<TKey, T> extends Storage<TKey, T> {
     return result;
   }
 
+  /**
+   * Fills inner storage with data (to hydrate store with mocks)
+   */
   public async hydrate(initialState: T[]): Promise<void> {
     this._storage.clear();
     for (const entity of initialState) {
@@ -31,6 +49,9 @@ export class InMemoryStorage<TKey, T> extends Storage<TKey, T> {
     }
   }
 
+  /**
+   * Adds new entity to collection.
+   */
   public async add(entity: T): Promise<void> {
     const key = this.resolveKey(entity);
     if (this._storage.has(key)) {
@@ -39,6 +60,9 @@ export class InMemoryStorage<TKey, T> extends Storage<TKey, T> {
     this._storage.set(key, entity);
   }
 
+  /**
+   * Performs partial update on item within collection.
+   */
   public async update(key: TKey, update: Partial<T>): Promise<T> {
     const src = this._storage.get(key);
     if (!src) {
@@ -52,10 +76,16 @@ export class InMemoryStorage<TKey, T> extends Storage<TKey, T> {
     return result;
   }
 
+  /**
+   * Removes item by given key from collection.
+   */
   public async delete(key: TKey): Promise<void> {
     this._storage.delete(key);
   }
 
+  /**
+   * Returns key (according to keyProp defined via constructor)
+   */
   private resolveKey(entity: T): TKey {
     return entity[this.config.keyProp] as TKey;
   }

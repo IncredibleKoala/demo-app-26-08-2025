@@ -27,6 +27,27 @@ function omit<T>(t: T, prop: keyof T): T {
   return t;
 }
 
+/**
+ * Movies "store" (facade)
+ * Implemented to keep interop between smart components and to encapsulate business-logic.
+ * NGRX/NGXS/e.t.c. libraries are not used intentionally.
+ *
+ * Contains:
+ * - a bunch of state variables (in subjects)
+ * - a single effect called "loadingEffect$" to automatically load data on filter change.
+ * - init method "loadMovies" to trigger initial loading.
+ * - a bunch of methods to interact with "fake backend" service.
+ * - a bunch of underscore-prefixed methods to "simulate store"
+ *
+ * Btw, underscore-prefixed methods are intended to:
+ * - update appropriate loading state
+ * - then to fetch or to manipulate data
+ * - then to update subjects state on action completed or failed
+ * - each method is finished by shareReplay() with inner subscribe call
+ *   (this allows us to not perform the call twice, but to let the caller avoid subscribing to the returned observable in case when caller does not care about returned result)
+ *
+ * A lot of cleanup or improvements may be done there, but.. is there any real reasons to do that?
+ */
 @Injectable()
 export class MoviesStore {
   private readonly dataAccessMoviesService = inject(DataAccessMoviesService);

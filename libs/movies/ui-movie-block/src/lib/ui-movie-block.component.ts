@@ -5,6 +5,9 @@ import { MovieDto } from '@demo-app/shared/models-movies';
 import { SharedUiPosterComponent } from '@demo-app/shared/ui-poster';
 import { SharedUiCardComponent } from '@demo-app/shared/ui-card';
 
+/**
+ * Movie block component (movie item template, as requested in specs)
+ */
 @Component({
   selector: 'lib-ui-movie-block',
   standalone: true,

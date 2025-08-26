@@ -22,6 +22,13 @@ const DEFAULT_STATE: MovieDto[] = MOVIES_MOCKS.map((e) => ({
   pictureUrl: e.Poster,
 }));
 
+/**
+ * Movies repo (mocked storage for movies).
+ * - uses in-memory storage class for storing movies.
+ * - follows immutability (all entities stored are cloned and cloned again on retrieval)
+ * - defer with delay fns are used to simulate delay (defer - to postpone real function call)
+ * @see InMemoryStorage
+ */
 @Injectable()
 export class DataAccessMoviesService {
   private _store = new InMemoryStorage<string, MovieDto>({ keyProp: 'id' });

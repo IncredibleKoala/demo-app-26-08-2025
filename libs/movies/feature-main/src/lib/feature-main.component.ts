@@ -23,6 +23,9 @@ import { SharedUiPageHeaderComponent } from '@demo-app/shared/ui-page-header';
 import { MovieDto } from '@demo-app/shared/models-movies';
 import { MovieFilters, MoviesStore } from './+state/movies.store';
 
+/**
+ * Entrypoint component of "movies" module.
+ */
 @Component({
   selector: 'lib-feature-movies-main',
   standalone: true,

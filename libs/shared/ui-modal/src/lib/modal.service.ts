@@ -18,6 +18,12 @@ export interface DialogConfig<TData = any> extends CdkDialogConfig<TData> {
   desiredWidthPx?: number;
 }
 
+/**
+ * Modal sevice (wrapper for CDK modal service):
+ * - hides default overrides for modals
+ * - may provide various options (like extra sizing options, e.t.c.)
+ * - handles injector substitution (in case when we need a dependency from component providers)
+ */
 @Injectable()
 export class ModalService {
   private readonly injector = inject(Injector);

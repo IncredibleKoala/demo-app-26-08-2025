@@ -1,3 +1,6 @@
+/**
+ * Base storage class for storing entity-like collection (mostly for mock purposes)
+ */
 export abstract class Storage<TKey, T> {
   public abstract search(props: { [key in keyof T]: any }): Promise<T[]>;
   public abstract get(key: TKey): Promise<T | null>;

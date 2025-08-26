@@ -13,6 +13,9 @@ export interface MoviesFeatureCreateMovieDialogComponentData {
 
 export type MoviesFeatureCreateMovieDialogComponentResult = MovieDto | null;
 
+/**
+ * Dialog to add or edit movies.
+ */
 @Component({
   selector: 'lib-movies-feature-add-movie-dialog',
   standalone: true,

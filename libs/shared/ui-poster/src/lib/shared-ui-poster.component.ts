@@ -1,6 +1,9 @@
 import { Component, HostBinding, Input } from '@angular/core';
 import { NgOptimizedImage } from '@angular/common';
 
+/**
+ * Component for displaying images with fallback options.
+ */
 @Component({
   standalone: true,
   selector: 'ui-poster',

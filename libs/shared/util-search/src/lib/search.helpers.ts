@@ -105,7 +105,24 @@ function buildConditionCriteria<T>(criteria: ConditionOperator<T>): (t: T) => bo
   return fn;
 }
 
-export function buildSearchCriteria<T>(criteria: SearchExpr<T>) {
+/**
+ * Builds dynamic filter function by given criteria.
+ * note: May be heavily bugged, since this is a quick and dirty implementation that have not been tested at all :D
+ * @example
+ * ```
+ * const filter = buildSearchCriteria({
+ *  $or: [
+ *   { name: { $incudes: 'bob' } },
+ *   { name: { $match: 'alice' } }
+ *  ]
+ * });
+ * filter({ name: 'alice' }); // returns true;
+ * filter({ name: 'alice-2' }); // returns false;
+ * filter({ name: 'bob' }); // returns true;
+ * filter({ name: 'bobby' }); // returns true;
+ * ```
+ */
+export function buildSearchCriteria<T>(criteria: SearchExpr<T>): (t: T) => boolean {
   if (isPropCriteria(criteria)) {
     return buildPropCriteria(criteria);
   }

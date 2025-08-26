@@ -1,6 +1,9 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+/**
+ * Common card component (not actually needed but implemented according to requested specification)
+ */
 @Component({
   standalone: true,
   selector: 'ui-card',

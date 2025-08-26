@@ -1,6 +1,9 @@
 import { Component, ContentChild, Input, TemplateRef } from '@angular/core';
 import { NgTemplateOutlet } from '@angular/common';
 
+/**
+ * Component for displaying a two-slot pane (that looks like page heading)
+ */
 @Component({
   selector: 'shared-ui-page-header',
   standalone: true,
