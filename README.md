@@ -8,6 +8,8 @@
 
 p.s. Прошу прощения за неформальный стиль, но времени красиво говорить сейчас нет)
 
+p.p.s Прошу прощения, но выполнил под актуальную версию angular, могу переделать под 14-й по запросу - делов там немного.
+
 # Default NX README
 
 <a alt="Nx logo" href="https://nx.dev" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="45"></a>
